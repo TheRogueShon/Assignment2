@@ -1,5 +1,5 @@
 <?php
-class ResponseStater extends Response_Abstract
+class ResponseState extends Response_Abstract
 {
     public function addEntries(array $entries) : bool
     {

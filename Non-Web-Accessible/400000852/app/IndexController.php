@@ -18,7 +18,8 @@ class IndexController extends PageController_Command_Abstract
         $this->setView ($v);
 
         $this->model->attach($this->view);
-        $data = $this->model->getAll();
+        $this->model->makeConnection();
+        $data = $this->model->findAll();
         
         $this->model->updateChangedData($data);
 

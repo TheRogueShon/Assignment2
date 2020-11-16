@@ -3,14 +3,6 @@ namespace Quwi\framework;
 
 class FrontController extends FrontController_Abstract
 {
-    /*
-    private function __construct(){
-
-    }
-
-    private function __clone(){
-
-    } */
 
     public static function run(){
         $controller = new FrontController();
@@ -24,6 +16,7 @@ class FrontController extends FrontController_Abstract
         $session = Session::getInstance();
 
         $session::create();
+        $session->add('user','testuser');
     }
 
     protected function handleRequest(){

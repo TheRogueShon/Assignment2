@@ -41,9 +41,9 @@
 				<?php
 				endif; ?>
 				<section>
-				<a href="#"><img src="images/<?php echo $c[4]?>" alt="<?php echo $c[0]?>" title="<?php echo $c[0]?>">
-				<span class="course-title"><?php echo $c[0]?></span>
-				<span><?php echo $instructors[$j];?></span></a>
+				<a href="#"><img src="images/<?php echo $c[5]?>" alt="<?php echo $c[1]?>" title="<?php echo $c[1]?>">
+				<span class="course-title"><?php echo $c[1]?></span>
+				<span><?php echo $instructors[$j][1];?></span></a>
 				</section>
 				<?php
 					if (($i % 4) == 3): ?>
@@ -64,9 +64,9 @@
 				<?php
 				endif; ?>
 				<section>
-				<a href="#"><img src="images/<?php echo $c[4]?>" alt="<?php echo $c[0]?>" title="<?php echo $c[0]?>">
-				<span class="course-title"><?php echo $c[0]?></span>
-				<span><?php echo $instructors[$j];?></span></a>
+				<a href="#"><img src="images/<?php echo $c[5]?>" alt="<?php echo $c[1]?>" title="<?php echo $c[1]?>">
+				<span class="course-title"><?php echo $c[1]?></span>
+				<span><?php echo $instructors[$j][1];?></span></a>
 				</section>
 				<?php
 					if (($i % 4) == 3): ?>

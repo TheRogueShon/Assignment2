@@ -15,7 +15,7 @@ class CoursesController extends PageController_Command_Abstract
         $this->setModel(new \CoursesModel());
         $this->setView ($v);
         
-        $session->add('user','testuser');
+        //$session->add('user','testuser');
         
         if(isset($_SESSION['user'])){
             $this->model->attach($this->view);

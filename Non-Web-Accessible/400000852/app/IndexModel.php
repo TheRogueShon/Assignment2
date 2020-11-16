@@ -22,10 +22,43 @@ class IndexModel extends Observable_Model
         $instructors = $this->loadData(DATA_DIR . '/instructors.json');
 
         return ['popular'=>$popular, 'recommended'=>$recommended, 'instructors'=>$instructors['instructors']];
+        //return $data;
     }
 
     public function getRecord(string $id) : array{
         return [];
+    }
+
+    public function findAll()
+    {
+        $data = [];
+        $query = "SELECT * from instructors";
+        $courseQuery = "SELECT * from courses";
+        $result = $this->sql->query($query);
+        $courseResult = $this->sql->query($courseQuery);
+        if ($this->sql->errno) {
+            echo 'SQL Error occurred: ';
+            echo $this->sql->error;
+            exit();
+        }
+        $instructors = mysqli_fetch_all($result);
+        $data = mysqli_fetch_all($courseResult);
+        $popularColumn = array_column($data, 3);
+        $recommendedColumn = array_column($data, 2);
+        $extra = $data;
+
+        array_multisort($recommendedColumn, SORT_DESC, $data);
+        $recommended = array_slice($data, 0, 8);
+        array_multisort($popularColumn, SORT_DESC, $extra);
+        $popular = array_slice($extra, 0, 8);
+        //array_push($this->json, $result->fetch_assoc());
+        return ['popular'=>$popular, 'recommended'=>$recommended, 'instructors'=>$instructors];
+       //return $data; */
+    }
+
+    public function findRecord($id)
+    {
+        
     }
 
     public function insert(array $values)

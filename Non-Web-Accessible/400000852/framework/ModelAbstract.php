@@ -19,13 +19,15 @@ abstract class ModelAbstract
         return $this->json[$fileName];
     }
 
+   
+
     public function storeData($data)
     {
         $jsonData = json_encode($data);
         file_put_contents(DATA_DIR . '/users.json', $jsonData);
     }
 
-    public static function makeConnection()
+    public function makeConnection()
     {
         $host = 'localhost';
         $user = 'root';
@@ -33,12 +35,12 @@ abstract class ModelAbstract
         $name = 'mooc';
 
         //establish database connection here
-        $sql = mysqli_connect($host, $user, $pass, $name);
-        if(!$sql){
+        $this->sql = mysqli_connect($host, $user, $pass, $name);
+        if(!$this->sql){
             die('Cannot connect to database');
         }
         else {
-            return $sql;
+            return $this->sql;
         }
     }
 }
